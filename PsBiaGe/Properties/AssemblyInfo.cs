@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PsChamp")]
-[assembly: AssemblyDescription("Parsing www.championat.com")]
+[assembly: AssemblyTitle("PsBiaGe")]
+[assembly: AssemblyDescription("Parsing bia.ge")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("ilel@list.ru")]
-[assembly: AssemblyProduct("PsChamp (ilel@list.ru)")]
+[assembly: AssemblyProduct("PsBiaGe (ilel@list.ru)")]
 [assembly: AssemblyCopyright("ilel@list.ru © 2022")]
 [assembly: AssemblyTrademark("ilel@list.ru")]
 [assembly: AssemblyCulture("")]
@@ -28,5 +28,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.0.0.1")]
+[assembly: AssemblyFileVersion("1.0.0.1")]

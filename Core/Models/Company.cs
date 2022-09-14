@@ -24,11 +24,32 @@ namespace Core.Models
 
                 return default;
             }
-        }
-        
+        }        
         public decimal? CompanyFillingStars { get; set; }
         public string ContactBox { get; set; }
-
+        public string Address { get; set; }
+        public string Phone { get; set; }
+        public string Brands { get; set; }
+        public string LegalForm { get; set; }
+        public string VatNumber { get; set; }
+        public string RegistrationNumber { get; set; }
+        public DateTime? RegistrationDate { get; set; }
+        public string RegistrationAuthority { get; set; }
+        public string LegalAddress { get; set; }
+        public string Status { get; set; }
+        [Size(2046)]
+        public string WorkingHours { get; set; }
+        [Size(2046)]
+        public string Products { get; set; }
+        [Size(2046)]
+        public string ServiceCategories { get; set; }
+        [Size(2046)]
+        public string BusinessActivity { get; set; }
+        [Size(2046)]
+        public string NaceClassification2004 { get; set; }        
+        [Size(2046)]
+        public string NaceClassification2016 { get; set; }
+        
         public override string ToString()
         {
             var result = default(string);

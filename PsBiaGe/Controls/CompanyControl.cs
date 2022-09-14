@@ -206,7 +206,7 @@ namespace PsChamp.Controls
                             await uof.CommitTransactionAsync().ConfigureAwait(false);
 
                             _listObj.Remove(obj);
-                            gridView.FocusedRowHandle = gridView.FocusedRowHandle - 1;
+                            gridView.FocusedRowHandle--;
                             gridView.RefreshData();
                         }
                     }

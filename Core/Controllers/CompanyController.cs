@@ -13,27 +13,23 @@ namespace Core.Controllers
             return await new XPQuery<Company>(session)?.ToListAsync();
         }
 
-        public static Company Create(string url, int number, string nameCompany, DateTime? lastUpdateDate, string contactBox)
+        public static Company Create(string url, int number, string nameCompany)
         {
             return new Company()
             {
                 Number = number,
                 Url = url,
-                NameCompany = nameCompany,
-                LastUpdateDate = lastUpdateDate,
-                ContactBox = contactBox
+                NameCompany = nameCompany
             };
         }
 
-        public static Company Create(Session session, string url, int number, string nameCompany, DateTime? lastUpdateDate, string contactBox)
+        public static Company Create(Session session, string url, int number, string nameCompany)
         {
             return new Company(session)
             {
                 Number = number,
                 Url = url,
-                NameCompany = nameCompany,
-                LastUpdateDate = lastUpdateDate,
-                ContactBox = contactBox
+                NameCompany = nameCompany
             };
         }
 
@@ -43,9 +39,7 @@ namespace Core.Controllers
             {
                 Number = company.Number,
                 Url = company.Url,
-                NameCompany = company.NameCompany,
-                LastUpdateDate = company.LastUpdateDate,
-                ContactBox = company.ContactBox
+                NameCompany = company.NameCompany
             };
         }
 
@@ -54,9 +48,7 @@ namespace Core.Controllers
             return await new XPQuery<Company>(session)
                 .FirstOrDefaultAsync(f => f.Url == url                
                     && f.Number == number
-                    && f.NameCompany == nameCompany
-                    && f.LastUpdateDate == lastUpdateDate
-                    && f.ContactBox == contactBox);
+                    && f.NameCompany == nameCompany);
         }
 
         public async static Task<Company> GetAsync(Session session, Company company)

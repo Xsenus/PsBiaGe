@@ -35,6 +35,7 @@ namespace PsChamp.GeneralForms
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnGet = new DevExpress.XtraEditors.SimpleButton();
+            this.txtStartNumber = new DevExpress.XtraEditors.TextEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItemSave = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemCancel = new DevExpress.XtraLayout.LayoutControlItem();
@@ -43,12 +44,14 @@ namespace PsChamp.GeneralForms
             this.layoutControlItemGet = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemParserInfo = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemIsWrite = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtStartNumber = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlItemStartNumber = new DevExpress.XtraLayout.LayoutControlItem();
+            this.cmbLanguage = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.layoutControlItemLanguage = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlHtmlParser)).BeginInit();
             this.layoutControlHtmlParser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.checkIsWrite.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoParserInfo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtStartNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCancel)).BeginInit();
@@ -57,8 +60,9 @@ namespace PsChamp.GeneralForms
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemGet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemParserInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemIsWrite)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtStartNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemStartNumber)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbLanguage.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemLanguage)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControlHtmlParser
@@ -70,6 +74,7 @@ namespace PsChamp.GeneralForms
             this.layoutControlHtmlParser.Controls.Add(this.btnCancel);
             this.layoutControlHtmlParser.Controls.Add(this.btnGet);
             this.layoutControlHtmlParser.Controls.Add(this.txtStartNumber);
+            this.layoutControlHtmlParser.Controls.Add(this.cmbLanguage);
             this.layoutControlHtmlParser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControlHtmlParser.Location = new System.Drawing.Point(0, 0);
             this.layoutControlHtmlParser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -82,10 +87,10 @@ namespace PsChamp.GeneralForms
             // checkIsWrite
             // 
             this.checkIsWrite.EditValue = true;
-            this.checkIsWrite.Location = new System.Drawing.Point(136, 6);
+            this.checkIsWrite.Location = new System.Drawing.Point(190, 6);
             this.checkIsWrite.Name = "checkIsWrite";
             this.checkIsWrite.Properties.Caption = "Минимальное логирование";
-            this.checkIsWrite.Size = new System.Drawing.Size(598, 19);
+            this.checkIsWrite.Size = new System.Drawing.Size(544, 19);
             this.checkIsWrite.StyleController = this.layoutControlHtmlParser;
             this.checkIsWrite.TabIndex = 11;
             // 
@@ -133,6 +138,18 @@ namespace PsChamp.GeneralForms
             this.btnGet.Text = "Получить";
             this.btnGet.Click += new System.EventHandler(this.btnGet_Click);
             // 
+            // txtStartNumber
+            // 
+            this.txtStartNumber.EditValue = "1";
+            this.txtStartNumber.Location = new System.Drawing.Point(57, 6);
+            this.txtStartNumber.MaximumSize = new System.Drawing.Size(75, 0);
+            this.txtStartNumber.Name = "txtStartNumber";
+            this.txtStartNumber.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtStartNumber.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.txtStartNumber.Size = new System.Drawing.Size(75, 20);
+            this.txtStartNumber.StyleController = this.layoutControlHtmlParser;
+            this.txtStartNumber.TabIndex = 12;
+            // 
             // Root
             // 
             this.Root.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold);
@@ -149,7 +166,8 @@ namespace PsChamp.GeneralForms
             this.layoutControlItemGet,
             this.layoutControlItemParserInfo,
             this.layoutControlItemIsWrite,
-            this.layoutControlItemStartNumber});
+            this.layoutControlItemStartNumber,
+            this.layoutControlItemLanguage});
             this.Root.Name = "Root";
             this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
             this.Root.Size = new System.Drawing.Size(740, 368);
@@ -211,21 +229,11 @@ namespace PsChamp.GeneralForms
             // layoutControlItemIsWrite
             // 
             this.layoutControlItemIsWrite.Control = this.checkIsWrite;
-            this.layoutControlItemIsWrite.Location = new System.Drawing.Point(130, 0);
+            this.layoutControlItemIsWrite.Location = new System.Drawing.Point(184, 0);
             this.layoutControlItemIsWrite.Name = "layoutControlItemIsWrite";
-            this.layoutControlItemIsWrite.Size = new System.Drawing.Size(602, 24);
+            this.layoutControlItemIsWrite.Size = new System.Drawing.Size(548, 24);
             this.layoutControlItemIsWrite.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItemIsWrite.TextVisible = false;
-            // 
-            // txtStartNumber
-            // 
-            this.txtStartNumber.EditValue = "1";
-            this.txtStartNumber.Location = new System.Drawing.Point(57, 6);
-            this.txtStartNumber.MaximumSize = new System.Drawing.Size(75, 0);
-            this.txtStartNumber.Name = "txtStartNumber";
-            this.txtStartNumber.Size = new System.Drawing.Size(75, 20);
-            this.txtStartNumber.StyleController = this.layoutControlHtmlParser;
-            this.txtStartNumber.TabIndex = 12;
             // 
             // layoutControlItemStartNumber
             // 
@@ -235,6 +243,34 @@ namespace PsChamp.GeneralForms
             this.layoutControlItemStartNumber.Size = new System.Drawing.Size(130, 24);
             this.layoutControlItemStartNumber.Text = "Начать с:";
             this.layoutControlItemStartNumber.TextSize = new System.Drawing.Size(48, 12);
+            // 
+            // cmbLanguage
+            // 
+            this.cmbLanguage.EditValue = "EN";
+            this.cmbLanguage.Location = new System.Drawing.Point(136, 6);
+            this.cmbLanguage.MaximumSize = new System.Drawing.Size(50, 0);
+            this.cmbLanguage.MinimumSize = new System.Drawing.Size(50, 0);
+            this.cmbLanguage.Name = "cmbLanguage";
+            this.cmbLanguage.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbLanguage.Properties.DropDownRows = 10;
+            this.cmbLanguage.Properties.Items.AddRange(new object[] {
+            "EN",
+            "GR"});
+            this.cmbLanguage.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cmbLanguage.Size = new System.Drawing.Size(50, 20);
+            this.cmbLanguage.StyleController = this.layoutControlHtmlParser;
+            this.cmbLanguage.TabIndex = 13;
+            // 
+            // layoutControlItemLanguage
+            // 
+            this.layoutControlItemLanguage.Control = this.cmbLanguage;
+            this.layoutControlItemLanguage.Location = new System.Drawing.Point(130, 0);
+            this.layoutControlItemLanguage.Name = "layoutControlItemLanguage";
+            this.layoutControlItemLanguage.Size = new System.Drawing.Size(54, 24);
+            this.layoutControlItemLanguage.Text = "layoutControlItemLanguage";
+            this.layoutControlItemLanguage.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItemLanguage.TextVisible = false;
             // 
             // HtmlParserForm
             // 
@@ -251,6 +287,7 @@ namespace PsChamp.GeneralForms
             this.layoutControlHtmlParser.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.checkIsWrite.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoParserInfo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtStartNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCancel)).EndInit();
@@ -259,8 +296,9 @@ namespace PsChamp.GeneralForms
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemGet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemParserInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemIsWrite)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtStartNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemStartNumber)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbLanguage.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemLanguage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -283,5 +321,7 @@ namespace PsChamp.GeneralForms
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemIsWrite;
         private DevExpress.XtraEditors.TextEdit txtStartNumber;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemStartNumber;
+        private DevExpress.XtraEditors.ComboBoxEdit cmbLanguage;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemLanguage;
     }
 }
