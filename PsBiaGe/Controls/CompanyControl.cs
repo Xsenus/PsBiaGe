@@ -43,6 +43,7 @@ namespace PsBiaGe.Controls
             {
                 this._listObj = list;
                 gridControl.DataSource = this._listObj;
+                gridView.MoveLast();
             }
         }
         public void SetShowPopup(bool isShowPopup)

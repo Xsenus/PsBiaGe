@@ -30,6 +30,8 @@ namespace PsBiaGe.GeneralForms
         private void InitializeComponent()
         {
             this.layoutControlHtmlParser = new DevExpress.XtraLayout.LayoutControl();
+            this.checkIsPostWriteUpdate = new DevExpress.XtraEditors.CheckEdit();
+            this.btnStop = new DevExpress.XtraEditors.SimpleButton();
             this.checkIsWrite = new DevExpress.XtraEditors.CheckEdit();
             this.memoParserInfo = new DevExpress.XtraEditors.MemoEdit();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
@@ -37,44 +39,49 @@ namespace PsBiaGe.GeneralForms
             this.btnGet = new DevExpress.XtraEditors.SimpleButton();
             this.txtStartNumber = new DevExpress.XtraEditors.TextEdit();
             this.cmbLanguage = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.txtCountTask = new DevExpress.XtraEditors.TextEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItemSave = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemCancel = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItemCancel = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItemGet = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemParserInfo = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemIsWrite = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemStartNumber = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemLanguage = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtCountTask = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItemCountTask = new DevExpress.XtraLayout.LayoutControlItem();
-            this.btnStop = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItemStop = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItemStop = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItemIsPostWriteUpdate = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItemIsPostWriteUpdate = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItemIsWrite = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItemCountTask = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlHtmlParser)).BeginInit();
             this.layoutControlHtmlParser.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkIsPostWriteUpdate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkIsWrite.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoParserInfo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStartNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbLanguage.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCountTask.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItemCancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemGet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemParserInfo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemIsWrite)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemStartNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemLanguage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCountTask.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCountTask)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemStop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItemStop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemIsPostWriteUpdate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItemIsPostWriteUpdate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemIsWrite)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCountTask)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControlHtmlParser
             // 
             this.layoutControlHtmlParser.AllowCustomization = false;
+            this.layoutControlHtmlParser.Controls.Add(this.checkIsPostWriteUpdate);
             this.layoutControlHtmlParser.Controls.Add(this.btnStop);
             this.layoutControlHtmlParser.Controls.Add(this.checkIsWrite);
             this.layoutControlHtmlParser.Controls.Add(this.memoParserInfo);
@@ -93,22 +100,46 @@ namespace PsBiaGe.GeneralForms
             this.layoutControlHtmlParser.TabIndex = 0;
             this.layoutControlHtmlParser.Text = "layoutControl1";
             // 
+            // checkIsPostWriteUpdate
+            // 
+            this.checkIsPostWriteUpdate.Location = new System.Drawing.Point(195, 54);
+            this.checkIsPostWriteUpdate.Name = "checkIsPostWriteUpdate";
+            this.checkIsPostWriteUpdate.Properties.Caption = "Обновление основной таблицы после сохранения";
+            this.checkIsPostWriteUpdate.Size = new System.Drawing.Size(539, 19);
+            this.checkIsPostWriteUpdate.StyleController = this.layoutControlHtmlParser;
+            this.checkIsPostWriteUpdate.TabIndex = 15;
+            // 
+            // btnStop
+            // 
+            this.btnStop.Appearance.BackColor = System.Drawing.Color.LightGray;
+            this.btnStop.Appearance.Options.UseBackColor = true;
+            this.btnStop.Location = new System.Drawing.Point(6, 337);
+            this.btnStop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnStop.MaximumSize = new System.Drawing.Size(150, 25);
+            this.btnStop.MinimumSize = new System.Drawing.Size(150, 25);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(150, 25);
+            this.btnStop.StyleController = this.layoutControlHtmlParser;
+            this.btnStop.TabIndex = 14;
+            this.btnStop.Text = "Остановить";
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+            // 
             // checkIsWrite
             // 
             this.checkIsWrite.EditValue = true;
-            this.checkIsWrite.Location = new System.Drawing.Point(243, 6);
+            this.checkIsWrite.Location = new System.Drawing.Point(195, 30);
             this.checkIsWrite.Name = "checkIsWrite";
             this.checkIsWrite.Properties.Caption = "Минимальное логирование";
-            this.checkIsWrite.Size = new System.Drawing.Size(302, 19);
+            this.checkIsWrite.Size = new System.Drawing.Size(172, 19);
             this.checkIsWrite.StyleController = this.layoutControlHtmlParser;
             this.checkIsWrite.TabIndex = 11;
             // 
             // memoParserInfo
             // 
-            this.memoParserInfo.Location = new System.Drawing.Point(6, 56);
+            this.memoParserInfo.Location = new System.Drawing.Point(6, 103);
             this.memoParserInfo.Name = "memoParserInfo";
             this.memoParserInfo.Properties.ReadOnly = true;
-            this.memoParserInfo.Size = new System.Drawing.Size(728, 277);
+            this.memoParserInfo.Size = new System.Drawing.Size(728, 230);
             this.memoParserInfo.StyleController = this.layoutControlHtmlParser;
             this.memoParserInfo.TabIndex = 9;
             // 
@@ -142,7 +173,7 @@ namespace PsBiaGe.GeneralForms
             // 
             this.btnGet.Appearance.BackColor = System.Drawing.Color.PeachPuff;
             this.btnGet.Appearance.Options.UseBackColor = true;
-            this.btnGet.Location = new System.Drawing.Point(6, 30);
+            this.btnGet.Location = new System.Drawing.Point(6, 77);
             this.btnGet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGet.Name = "btnGet";
             this.btnGet.Size = new System.Drawing.Size(728, 22);
@@ -156,17 +187,18 @@ namespace PsBiaGe.GeneralForms
             this.txtStartNumber.EditValue = "1";
             this.txtStartNumber.Location = new System.Drawing.Point(116, 6);
             this.txtStartNumber.MaximumSize = new System.Drawing.Size(75, 0);
+            this.txtStartNumber.MinimumSize = new System.Drawing.Size(75, 0);
             this.txtStartNumber.Name = "txtStartNumber";
             this.txtStartNumber.Properties.Appearance.Options.UseTextOptions = true;
             this.txtStartNumber.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.txtStartNumber.Size = new System.Drawing.Size(69, 20);
+            this.txtStartNumber.Size = new System.Drawing.Size(75, 20);
             this.txtStartNumber.StyleController = this.layoutControlHtmlParser;
             this.txtStartNumber.TabIndex = 12;
             // 
             // cmbLanguage
             // 
             this.cmbLanguage.EditValue = "EN";
-            this.cmbLanguage.Location = new System.Drawing.Point(189, 6);
+            this.cmbLanguage.Location = new System.Drawing.Point(195, 6);
             this.cmbLanguage.MaximumSize = new System.Drawing.Size(50, 0);
             this.cmbLanguage.MinimumSize = new System.Drawing.Size(50, 0);
             this.cmbLanguage.Name = "cmbLanguage";
@@ -180,6 +212,19 @@ namespace PsBiaGe.GeneralForms
             this.cmbLanguage.Size = new System.Drawing.Size(50, 20);
             this.cmbLanguage.StyleController = this.layoutControlHtmlParser;
             this.cmbLanguage.TabIndex = 13;
+            // 
+            // txtCountTask
+            // 
+            this.txtCountTask.EditValue = "5";
+            this.txtCountTask.Location = new System.Drawing.Point(116, 30);
+            this.txtCountTask.MaximumSize = new System.Drawing.Size(75, 0);
+            this.txtCountTask.MinimumSize = new System.Drawing.Size(75, 0);
+            this.txtCountTask.Name = "txtCountTask";
+            this.txtCountTask.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtCountTask.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.txtCountTask.Size = new System.Drawing.Size(75, 20);
+            this.txtCountTask.StyleController = this.layoutControlHtmlParser;
+            this.txtCountTask.TabIndex = 12;
             // 
             // Root
             // 
@@ -195,12 +240,14 @@ namespace PsBiaGe.GeneralForms
             this.emptySpaceItemCancel,
             this.layoutControlItemGet,
             this.layoutControlItemParserInfo,
-            this.layoutControlItemIsWrite,
             this.layoutControlItemStartNumber,
             this.layoutControlItemLanguage,
-            this.layoutControlItemCountTask,
             this.layoutControlItemStop,
-            this.emptySpaceItemStop});
+            this.emptySpaceItemStop,
+            this.layoutControlItemIsPostWriteUpdate,
+            this.emptySpaceItemIsPostWriteUpdate,
+            this.layoutControlItemIsWrite,
+            this.layoutControlItemCountTask});
             this.Root.Name = "Root";
             this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
             this.Root.Size = new System.Drawing.Size(740, 368);
@@ -228,15 +275,15 @@ namespace PsBiaGe.GeneralForms
             // emptySpaceItemCancel
             // 
             this.emptySpaceItemCancel.AllowHotTrack = false;
-            this.emptySpaceItemCancel.Location = new System.Drawing.Point(292, 334);
+            this.emptySpaceItemCancel.Location = new System.Drawing.Point(298, 331);
             this.emptySpaceItemCancel.Name = "emptySpaceItemCancel";
-            this.emptySpaceItemCancel.Size = new System.Drawing.Size(147, 26);
+            this.emptySpaceItemCancel.Size = new System.Drawing.Size(126, 29);
             this.emptySpaceItemCancel.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItemGet
             // 
             this.layoutControlItemGet.Control = this.btnGet;
-            this.layoutControlItemGet.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItemGet.Location = new System.Drawing.Point(0, 71);
             this.layoutControlItemGet.Name = "layoutControlItemGet";
             this.layoutControlItemGet.Size = new System.Drawing.Size(732, 26);
             this.layoutControlItemGet.TextSize = new System.Drawing.Size(0, 0);
@@ -245,75 +292,32 @@ namespace PsBiaGe.GeneralForms
             // layoutControlItemParserInfo
             // 
             this.layoutControlItemParserInfo.Control = this.memoParserInfo;
-            this.layoutControlItemParserInfo.Location = new System.Drawing.Point(0, 50);
+            this.layoutControlItemParserInfo.Location = new System.Drawing.Point(0, 97);
             this.layoutControlItemParserInfo.Name = "layoutControlItemParserInfo";
-            this.layoutControlItemParserInfo.Size = new System.Drawing.Size(732, 281);
+            this.layoutControlItemParserInfo.Size = new System.Drawing.Size(732, 234);
             this.layoutControlItemParserInfo.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItemParserInfo.TextVisible = false;
-            // 
-            // layoutControlItemIsWrite
-            // 
-            this.layoutControlItemIsWrite.Control = this.checkIsWrite;
-            this.layoutControlItemIsWrite.Location = new System.Drawing.Point(237, 0);
-            this.layoutControlItemIsWrite.Name = "layoutControlItemIsWrite";
-            this.layoutControlItemIsWrite.Size = new System.Drawing.Size(306, 24);
-            this.layoutControlItemIsWrite.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItemIsWrite.TextVisible = false;
             // 
             // layoutControlItemStartNumber
             // 
             this.layoutControlItemStartNumber.Control = this.txtStartNumber;
             this.layoutControlItemStartNumber.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItemStartNumber.MaxSize = new System.Drawing.Size(189, 24);
+            this.layoutControlItemStartNumber.MinSize = new System.Drawing.Size(189, 24);
             this.layoutControlItemStartNumber.Name = "layoutControlItemStartNumber";
-            this.layoutControlItemStartNumber.Size = new System.Drawing.Size(183, 24);
+            this.layoutControlItemStartNumber.Size = new System.Drawing.Size(189, 24);
+            this.layoutControlItemStartNumber.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItemStartNumber.Text = "Начать с:";
             this.layoutControlItemStartNumber.TextSize = new System.Drawing.Size(107, 12);
             // 
             // layoutControlItemLanguage
             // 
             this.layoutControlItemLanguage.Control = this.cmbLanguage;
-            this.layoutControlItemLanguage.Location = new System.Drawing.Point(183, 0);
+            this.layoutControlItemLanguage.Location = new System.Drawing.Point(189, 0);
             this.layoutControlItemLanguage.Name = "layoutControlItemLanguage";
-            this.layoutControlItemLanguage.Size = new System.Drawing.Size(54, 24);
+            this.layoutControlItemLanguage.Size = new System.Drawing.Size(543, 24);
             this.layoutControlItemLanguage.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItemLanguage.TextVisible = false;
-            // 
-            // txtCountTask
-            // 
-            this.txtCountTask.EditValue = "5";
-            this.txtCountTask.Location = new System.Drawing.Point(659, 6);
-            this.txtCountTask.MaximumSize = new System.Drawing.Size(75, 0);
-            this.txtCountTask.Name = "txtCountTask";
-            this.txtCountTask.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtCountTask.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.txtCountTask.Size = new System.Drawing.Size(75, 20);
-            this.txtCountTask.StyleController = this.layoutControlHtmlParser;
-            this.txtCountTask.TabIndex = 12;
-            // 
-            // layoutControlItemCountTask
-            // 
-            this.layoutControlItemCountTask.Control = this.txtCountTask;
-            this.layoutControlItemCountTask.CustomizationFormText = "Начать с:";
-            this.layoutControlItemCountTask.Location = new System.Drawing.Point(543, 0);
-            this.layoutControlItemCountTask.Name = "layoutControlItemCountTask";
-            this.layoutControlItemCountTask.Size = new System.Drawing.Size(189, 24);
-            this.layoutControlItemCountTask.Text = "Количество потоков:";
-            this.layoutControlItemCountTask.TextSize = new System.Drawing.Size(107, 12);
-            // 
-            // btnStop
-            // 
-            this.btnStop.Appearance.BackColor = System.Drawing.Color.LightGray;
-            this.btnStop.Appearance.Options.UseBackColor = true;
-            this.btnStop.Location = new System.Drawing.Point(6, 337);
-            this.btnStop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnStop.MaximumSize = new System.Drawing.Size(150, 25);
-            this.btnStop.MinimumSize = new System.Drawing.Size(150, 25);
-            this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(150, 25);
-            this.btnStop.StyleController = this.layoutControlHtmlParser;
-            this.btnStop.TabIndex = 14;
-            this.btnStop.Text = "Остановить";
-            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // layoutControlItemStop
             // 
@@ -327,10 +331,55 @@ namespace PsBiaGe.GeneralForms
             // emptySpaceItemStop
             // 
             this.emptySpaceItemStop.AllowHotTrack = false;
-            this.emptySpaceItemStop.Location = new System.Drawing.Point(146, 334);
+            this.emptySpaceItemStop.Location = new System.Drawing.Point(154, 331);
             this.emptySpaceItemStop.Name = "emptySpaceItemStop";
-            this.emptySpaceItemStop.Size = new System.Drawing.Size(146, 26);
+            this.emptySpaceItemStop.Size = new System.Drawing.Size(144, 29);
             this.emptySpaceItemStop.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItemIsPostWriteUpdate
+            // 
+            this.layoutControlItemIsPostWriteUpdate.Control = this.checkIsPostWriteUpdate;
+            this.layoutControlItemIsPostWriteUpdate.Location = new System.Drawing.Point(189, 48);
+            this.layoutControlItemIsPostWriteUpdate.Name = "layoutControlItemIsPostWriteUpdate";
+            this.layoutControlItemIsPostWriteUpdate.Size = new System.Drawing.Size(543, 23);
+            this.layoutControlItemIsPostWriteUpdate.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItemIsPostWriteUpdate.TextVisible = false;
+            // 
+            // emptySpaceItemIsPostWriteUpdate
+            // 
+            this.emptySpaceItemIsPostWriteUpdate.AllowHotTrack = false;
+            this.emptySpaceItemIsPostWriteUpdate.Location = new System.Drawing.Point(0, 48);
+            this.emptySpaceItemIsPostWriteUpdate.MaxSize = new System.Drawing.Size(189, 23);
+            this.emptySpaceItemIsPostWriteUpdate.MinSize = new System.Drawing.Size(189, 23);
+            this.emptySpaceItemIsPostWriteUpdate.Name = "emptySpaceItemIsPostWriteUpdate";
+            this.emptySpaceItemIsPostWriteUpdate.Size = new System.Drawing.Size(189, 23);
+            this.emptySpaceItemIsPostWriteUpdate.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.emptySpaceItemIsPostWriteUpdate.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItemIsWrite
+            // 
+            this.layoutControlItemIsWrite.Control = this.checkIsWrite;
+            this.layoutControlItemIsWrite.Location = new System.Drawing.Point(189, 24);
+            this.layoutControlItemIsWrite.MaxSize = new System.Drawing.Size(176, 24);
+            this.layoutControlItemIsWrite.MinSize = new System.Drawing.Size(176, 24);
+            this.layoutControlItemIsWrite.Name = "layoutControlItemIsWrite";
+            this.layoutControlItemIsWrite.Size = new System.Drawing.Size(543, 24);
+            this.layoutControlItemIsWrite.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItemIsWrite.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItemIsWrite.TextVisible = false;
+            // 
+            // layoutControlItemCountTask
+            // 
+            this.layoutControlItemCountTask.Control = this.txtCountTask;
+            this.layoutControlItemCountTask.CustomizationFormText = "Начать с:";
+            this.layoutControlItemCountTask.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItemCountTask.MaxSize = new System.Drawing.Size(189, 24);
+            this.layoutControlItemCountTask.MinSize = new System.Drawing.Size(189, 24);
+            this.layoutControlItemCountTask.Name = "layoutControlItemCountTask";
+            this.layoutControlItemCountTask.Size = new System.Drawing.Size(189, 24);
+            this.layoutControlItemCountTask.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItemCountTask.Text = "Количество потоков:";
+            this.layoutControlItemCountTask.TextSize = new System.Drawing.Size(107, 12);
             // 
             // HtmlParserForm
             // 
@@ -342,26 +391,30 @@ namespace PsBiaGe.GeneralForms
             this.MinimumSize = new System.Drawing.Size(600, 350);
             this.Name = "HtmlParserForm";
             this.Text = "www.bia.ge";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.HtmlParserForm_FormClosing);
             this.Load += new System.EventHandler(this.HtmlParserForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlHtmlParser)).EndInit();
             this.layoutControlHtmlParser.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.checkIsPostWriteUpdate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkIsWrite.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoParserInfo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStartNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbLanguage.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCountTask.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCancel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItemCancel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemGet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemParserInfo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemIsWrite)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemStartNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemLanguage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCountTask.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCountTask)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemStop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItemStop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemIsPostWriteUpdate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItemIsPostWriteUpdate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemIsWrite)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCountTask)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -390,5 +443,8 @@ namespace PsBiaGe.GeneralForms
         private DevExpress.XtraEditors.SimpleButton btnStop;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemStop;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItemStop;
+        private DevExpress.XtraEditors.CheckEdit checkIsPostWriteUpdate;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemIsPostWriteUpdate;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItemIsPostWriteUpdate;
     }
 }
