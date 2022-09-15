@@ -2,24 +2,38 @@
 using Core.Models;
 using DevExpress.Xpo;
 using DevExpress.XtraEditors;
-using DevExpress.XtraEditors.Controls;
 using PulsLibrary.Extensions.DevForm;
-using PulsLibrary.Extensions.DevXpo;
 using PulsLibrary.Methods;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
-namespace PsChamp.GeneralForms
+namespace PsBiaGe.GeneralForms
 {
     public partial class HtmlParserForm : XtraForm
     {
         private string _url = "https://www.bia.ge/<LANGUAGE>/Company/<NUMBER>?VisitCompanyType=3&ServiceId=54";
         private List<Company> _companies;
-        private bool _isWrite => !checkIsWrite.Checked;
-        private string _language => cmbLanguage.Text;
         private UnitOfWork _uof = new UnitOfWork();
+        private CancellationTokenSource _cancellationTokenSource;
+        private CancellationToken _token;
+
+        private bool IsWrite => !checkIsWrite.Checked;
+        private string Language => cmbLanguage.Text;        
+        private int CountTask
+        {
+            get
+            {
+                if (int.TryParse(txtCountTask.Text, out int result))
+                {
+                    return result;
+                }
+                
+                return 1;
+            }
+        }
                 
         public delegate void UpdateEventHandler(bool isUpdate);
         public event UpdateEventHandler UpdateEvent;
@@ -31,7 +45,7 @@ namespace PsChamp.GeneralForms
         }
 
         private async void HtmlParserForm_Load(object sender, EventArgs e)
-        {
+        {            
             _companies = await CompanyController.GetCompaniesAsync(_uof);
         }
 
@@ -62,6 +76,9 @@ namespace PsChamp.GeneralForms
         
         private async void btnGet_Click(object sender, EventArgs e)
         {
+            _cancellationTokenSource = new CancellationTokenSource();
+            _token = _cancellationTokenSource.Token;
+
             AddTextToMemoEdit(text: "Начался процесс получение данных...", isClear: true);
 
             var i = 1;
@@ -73,16 +90,36 @@ namespace PsChamp.GeneralForms
             
             AddTextToMemoEdit(text: $"Парсинг начнется с {i} элемента");
 
+            var count = 0;
+            var taskList = new List<Task>();
             while (true)
             {
-                if (await GetCompanies(i) is false)
+                try
                 {
-                    break;
-                }
+                    if (_cancellationTokenSource.IsCancellationRequested)
+                    {
+                        break;
+                    }
+                    
+                    taskList.Add(GetCompanies(i));
+                    count++;
 
-                UpdateEvent?.Invoke(true);
-                i++;
-            }            
+                    if (count >= CountTask)
+                    {
+                        await Task.WhenAll(taskList);
+                        count = 0;
+                        taskList?.Clear();
+                        UpdateEvent?.Invoke(true);
+                    }
+                    i++;
+                }
+                catch (Exception ex)
+                {
+                    AddTextToMemoEdit(text: ex.ToString());
+                    return;
+                }
+            }
+            
             AddTextToMemoEdit(text: "Успешно завершен импорт");
             DevXtraMessageBox.ShowXtraMessageBox("Успешно завершен импорт");
         }
@@ -91,33 +128,33 @@ namespace PsChamp.GeneralForms
         {
             try
             {
-                var url = _url.Replace("<LANGUAGE>", _language).Replace("<NUMBER>", $"{number}");
+                var url = _url.Replace("<LANGUAGE>", Language).Replace("<NUMBER>", $"{number}");
                 AddTextToMemoEdit(text: $"Получение страницы по ссылке: {url}");
                 var htmlDocument = await HtmlParserController.GetHtmlDocumentAsync(url);
 
-                AddTextToMemoEdit(text: $"Получение наименования компании", isWrite: _isWrite);
+                AddTextToMemoEdit(text: $"Получение наименования компании", isWrite: IsWrite);
                 var companyName = HtmlParserController.GetHtmlNode(htmlDocument, "//div[@id='CompanyNameBox']")?.InnerText?.Trim();
                 if (string.IsNullOrWhiteSpace(companyName))
                 {
                     return true;
                 }
                 
-                AddTextToMemoEdit(text: $"Получение последней даты обновления...", isWrite: _isWrite);
+                AddTextToMemoEdit(text: $"Получение последней даты обновления...", isWrite: IsWrite);
                 var lastUpdateDate = HtmlParserController.GetHtmlNode(htmlDocument, "//div[@id='LastUpdateDate']/span")?.InnerText?.Trim();
 
-                AddTextToMemoEdit(text: $"Получение адреса...", isWrite: _isWrite);
+                AddTextToMemoEdit(text: $"Получение адреса...", isWrite: IsWrite);
                 var contactBox = HtmlParserController.GetHtmlNode(htmlDocument, "//*[@id='ContactsBox']/table/tbody/tr[1]/td[2]/span")?.InnerText?.Trim();
 
-                AddTextToMemoEdit(text: $"Получение рейтинга...", isWrite: _isWrite);
+                AddTextToMemoEdit(text: $"Получение рейтинга...", isWrite: IsWrite);
                 var companyFillingStars = HtmlParserController.GetHtmlNode(htmlDocument, "//div[@id='CompanyFillingStars']")
                     ?.Attributes
                     ?.FirstOrDefault(f => f.Name != null && f.Name.Equals("data-title"))
                     ?.Value;
 
-                AddTextToMemoEdit(text: $"Получение телефона...", isWrite: _isWrite);
+                AddTextToMemoEdit(text: $"Получение телефона...", isWrite: IsWrite);
                 var phone = HtmlParserController.GetHtmlNode(htmlDocument, "//*[@id='ContactsBox']/table/tbody/tr[2]/td[2]")?.InnerText?.Trim()?.Replace("\r\n,\t\t\t\t\t\t\t\t\t\t", "; ");
 
-                AddTextToMemoEdit(text: $"Получение брендов...", isWrite: _isWrite);
+                AddTextToMemoEdit(text: $"Получение брендов...", isWrite: IsWrite);
                 var brands = HtmlParserController.GetHtmlNode(htmlDocument, "//*[@id='tpAboutCompany']/table/tbody/tr[1]/td[2]/span[2]")?.InnerText?.Trim();
                 
                 var legalForm = HtmlParserController.GetHtmlNode(htmlDocument, "//table/tbody/tr[2]/td[1]/span[2]")?.InnerText?.Trim();
@@ -151,7 +188,7 @@ namespace PsChamp.GeneralForms
                     var _сompany = CompanyController.Create(url, number, companyName);
                     if (_сompany != null)
                     {
-                        AddTextToMemoEdit(text: $"Сформирована новая компания: {_сompany}", isWrite: _isWrite);
+                        AddTextToMemoEdit(text: $"Сформирована новая компания: {_сompany}", isWrite: IsWrite);
                     }
 
                     var currentCompany = _companies.FirstOrDefault(f => f != null && f.Equals(_сompany));
@@ -198,12 +235,19 @@ namespace PsChamp.GeneralForms
         
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            _cancellationTokenSource?.Cancel();
             Close();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            _cancellationTokenSource?.Cancel();
             Close();
-        }        
+        }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            _cancellationTokenSource?.Cancel();
+        }
     }
 }

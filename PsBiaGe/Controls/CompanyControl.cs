@@ -7,16 +7,15 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
-using PsChamp.GeneralForms;
+using PsBiaGe.GeneralForms;
 using PulsLibrary.Extensions.DevForm;
 using PulsLibrary.Methods;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 
-namespace PsChamp.Controls
+namespace PsBiaGe.Controls
 {
     public partial class CompanyControl : XtraUserControl
     {

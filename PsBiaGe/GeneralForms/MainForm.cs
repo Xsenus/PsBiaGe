@@ -1,13 +1,12 @@
 ﻿using Core.Controllers;
-using Core.Models;
 using DevExpress.Xpo;
 using DevExpress.XtraEditors;
 using DevExpress.XtraLayout;
-using PsChamp.Controls;
+using PsBiaGe.Controls;
 using System;
 using System.Linq;
 
-namespace PsChamp.GeneralForms
+namespace PsBiaGe.GeneralForms
 {
     public partial class MainForm : XtraForm
     {

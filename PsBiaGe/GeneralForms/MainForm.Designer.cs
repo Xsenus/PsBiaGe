@@ -1,5 +1,5 @@
 ﻿
-namespace PsChamp.GeneralForms
+namespace PsBiaGe.GeneralForms
 {
     partial class MainForm
     {

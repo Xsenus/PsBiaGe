@@ -1,5 +1,5 @@
 ﻿
-namespace PsChamp.Controls
+namespace PsBiaGe.Controls
 {
     partial class CompanyControl
     {
@@ -135,8 +135,8 @@ namespace PsChamp.Controls
             // 
             this.barBtnAdd.Caption = "Добавить";
             this.barBtnAdd.Id = 0;
-            this.barBtnAdd.ImageOptions.Image = global::PsChamp.Properties.Resources.addfile_16x16;
-            this.barBtnAdd.ImageOptions.LargeImage = global::PsChamp.Properties.Resources.addfile_32x32;
+            this.barBtnAdd.ImageOptions.Image = global::PsBiaGe.Properties.Resources.addfile_16x16;
+            this.barBtnAdd.ImageOptions.LargeImage = global::PsBiaGe.Properties.Resources.addfile_32x32;
             this.barBtnAdd.Name = "barBtnAdd";
             this.barBtnAdd.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.barBtnAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnAdd_ItemClick);
@@ -145,8 +145,8 @@ namespace PsChamp.Controls
             // 
             this.barBtnEdit.Caption = "Изменить";
             this.barBtnEdit.Id = 1;
-            this.barBtnEdit.ImageOptions.Image = global::PsChamp.Properties.Resources.edit_16x16;
-            this.barBtnEdit.ImageOptions.LargeImage = global::PsChamp.Properties.Resources.edit_32x32;
+            this.barBtnEdit.ImageOptions.Image = global::PsBiaGe.Properties.Resources.edit_16x16;
+            this.barBtnEdit.ImageOptions.LargeImage = global::PsBiaGe.Properties.Resources.edit_32x32;
             this.barBtnEdit.Name = "barBtnEdit";
             this.barBtnEdit.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.barBtnEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnEdit_ItemClick);
@@ -155,8 +155,8 @@ namespace PsChamp.Controls
             // 
             this.barBtnDel.Caption = "Удалить";
             this.barBtnDel.Id = 2;
-            this.barBtnDel.ImageOptions.Image = global::PsChamp.Properties.Resources.deletelist_16x16;
-            this.barBtnDel.ImageOptions.LargeImage = global::PsChamp.Properties.Resources.deletelist_32x32;
+            this.barBtnDel.ImageOptions.Image = global::PsBiaGe.Properties.Resources.deletelist_16x16;
+            this.barBtnDel.ImageOptions.LargeImage = global::PsBiaGe.Properties.Resources.deletelist_32x32;
             this.barBtnDel.Name = "barBtnDel";
             this.barBtnDel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnDel_ItemClick);
             // 
@@ -164,8 +164,8 @@ namespace PsChamp.Controls
             // 
             this.barCheckFindPanel.Caption = "Панель поиска";
             this.barCheckFindPanel.Id = 7;
-            this.barCheckFindPanel.ImageOptions.Image = global::PsChamp.Properties.Resources.find_16x16;
-            this.barCheckFindPanel.ImageOptions.LargeImage = global::PsChamp.Properties.Resources.find_32x32;
+            this.barCheckFindPanel.ImageOptions.Image = global::PsBiaGe.Properties.Resources.find_16x16;
+            this.barCheckFindPanel.ImageOptions.LargeImage = global::PsBiaGe.Properties.Resources.find_32x32;
             this.barCheckFindPanel.Name = "barCheckFindPanel";
             this.barCheckFindPanel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barCheckFindPanel_ItemClick);
             // 
@@ -173,8 +173,8 @@ namespace PsChamp.Controls
             // 
             this.barCheckAutoFilterRow.Caption = "Строка автофильтра";
             this.barCheckAutoFilterRow.Id = 8;
-            this.barCheckAutoFilterRow.ImageOptions.Image = global::PsChamp.Properties.Resources.filterbyseries_chart_16x16;
-            this.barCheckAutoFilterRow.ImageOptions.LargeImage = global::PsChamp.Properties.Resources.filterbyseries_chart_32x32;
+            this.barCheckAutoFilterRow.ImageOptions.Image = global::PsBiaGe.Properties.Resources.filterbyseries_chart_16x16;
+            this.barCheckAutoFilterRow.ImageOptions.LargeImage = global::PsBiaGe.Properties.Resources.filterbyseries_chart_32x32;
             this.barCheckAutoFilterRow.Name = "barCheckAutoFilterRow";
             this.barCheckAutoFilterRow.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barCheckAutoFilterRow_ItemClick);
             // 
@@ -182,8 +182,8 @@ namespace PsChamp.Controls
             // 
             this.barBtnUpdate.Caption = "Обновить";
             this.barBtnUpdate.Id = 9;
-            this.barBtnUpdate.ImageOptions.Image = global::PsChamp.Properties.Resources.recurrence_16x16;
-            this.barBtnUpdate.ImageOptions.LargeImage = global::PsChamp.Properties.Resources.recurrence_32x32;
+            this.barBtnUpdate.ImageOptions.Image = global::PsBiaGe.Properties.Resources.recurrence_16x16;
+            this.barBtnUpdate.ImageOptions.LargeImage = global::PsBiaGe.Properties.Resources.recurrence_32x32;
             this.barBtnUpdate.Name = "barBtnUpdate";
             this.barBtnUpdate.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnUpdate_ItemClick);
             // 
@@ -191,8 +191,8 @@ namespace PsChamp.Controls
             // 
             this.barBtnGet.Caption = "Получить";
             this.barBtnGet.Id = 23;
-            this.barBtnGet.ImageOptions.Image = global::PsChamp.Properties.Resources.download_16x16;
-            this.barBtnGet.ImageOptions.LargeImage = global::PsChamp.Properties.Resources.download_32x32;
+            this.barBtnGet.ImageOptions.Image = global::PsBiaGe.Properties.Resources.download_16x16;
+            this.barBtnGet.ImageOptions.LargeImage = global::PsBiaGe.Properties.Resources.download_32x32;
             this.barBtnGet.Name = "barBtnGet";
             this.barBtnGet.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnGet_ItemClick);
             // 

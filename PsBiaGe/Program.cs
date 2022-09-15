@@ -1,6 +1,6 @@
 ﻿using Core.Controllers;
 using DevExpress.UserSkins;
-using PsChamp.GeneralForms;
+using PsBiaGe.GeneralForms;
 using System;
 using System.Windows.Forms;
 
