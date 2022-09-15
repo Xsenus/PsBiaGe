@@ -130,6 +130,8 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="App.config" />
+    <None Include="Archives\bia.ge.EN_%2815.09.22%29.zip" />
+    <None Include="Archives\bia.ge.GR_%2815.09.22%29.zip" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
